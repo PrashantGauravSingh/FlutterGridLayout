@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gauge/AddDevice.dart';
+import 'package:flutter_gauge/ControlScreen.dart';
 import 'package:wifi/wifi.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
@@ -146,7 +147,7 @@ class _WifiConnectScreenState extends State<WifiConnectScreen> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => AddDevice()),
+                              MaterialPageRoute(builder: (context) => ControlScreen()),
                             );
                           },
                           child: Padding(

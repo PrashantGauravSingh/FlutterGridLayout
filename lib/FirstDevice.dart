@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gauge/ControlScreen.dart';
 import 'package:flutter_gauge/DropDownDeviceType.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -10,7 +11,14 @@ class FirstDevice extends StatefulWidget {
 class _FirstDeviceState extends State<FirstDevice> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+        builder: (context, child) {
+      return MediaQuery(
+        child: child,
+        data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+      );
+    },
+    home:Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
@@ -42,7 +50,8 @@ class _FirstDeviceState extends State<FirstDevice> {
           ],
         ),
       )
-      );
+      ),
+    );
   }
 
 
@@ -218,6 +227,10 @@ class _FirstDeviceState extends State<FirstDevice> {
               ),
               onTap: () {
                 print(123);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ControlScreen()),
+                );
               },
             );
           } else if (index == 1) {
