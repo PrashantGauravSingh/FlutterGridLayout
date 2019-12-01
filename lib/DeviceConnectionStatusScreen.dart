@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gauge/Search_device_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:smartify/screens/Connect_wifi_screens/Search_device_screen.dart';
 
 class DeviceConnectionStatusScreen extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(milliseconds: 3000), () {
+    Future.delayed(const Duration(milliseconds: 9000), () {
 // Here you can write your code
 
       setState(() {
@@ -47,7 +48,13 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
         actions: <Widget>[
           IconButton(
               icon: Icon(
-                Icons.person,
+                Icons.sync,
+                color: Colors.black,
+              ),
+              onPressed: () {}),
+          IconButton(
+              icon: Icon(
+                Icons.help_outline,
                 color: Colors.black,
               ),
               onPressed: () {})
@@ -74,86 +81,68 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                     .of(context)
                     .size
                     .width,
-                height: 15.0,
                 child: LinearProgressIndicator(
                   valueColor: new AlwaysStoppedAnimation<Color>(
-                      Colors.blueGrey),
+                      Colors.black),
                   backgroundColor: Colors.white70,
                   value: 0.8,
                 ),
               ),
+
+                 Padding(
+                   padding: const EdgeInsets.all(15.0),
+                   child: SvgPicture.asset(
+                          "images/svg/havells_logo (2).svg",
+
+    ),
+                 ),
+
+              ],),
+
               Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: new Image.asset(
-                  'resources/assets/logo.png',
-                  width: 40.0,
-                  height: 40.0,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(15),),
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text("Your smart device is almost ready to use",
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14.0),),
+                  ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: 15.0, top: 10, right: 15.0, bottom: 10.0),
-                child: Text(
-                  "Your smart device is almost ready to use",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: "Aileron",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0),
-                ),
-              ),
-              Padding(
                 padding: const EdgeInsets.all(15.0),
-                child: Card(
-                    elevation: 8.0,
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(20.0),
-                          child: Container(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: CircularPercentIndicator(
-                                radius: 80.0,
-                                lineWidth: 8.0,
-                                animation: true,
-                                animationDuration: 200,
-                                percent: 0.60,
-                                center: Text("60%"),
-                                progressColor: Colors.blueGrey,
+                child: Container(
+                  child: Card(
+                      elevation: 8.0,
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Container(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: CircularPercentIndicator(
+                                  radius: 80.0,
+                                  lineWidth: 4,
+                                  animation: true,
+                                  animationDuration: 2000,
+                                  percent: 0.60,
+                                  center: Text("60%"),
+                                  progressColor: Colors.blue,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        Center(
-                          child: Container(
-                            width: MediaQuery
-                                .of(context)
-                                .size
-                                .width / 1.5,
-                            color: Colors.cyanAccent.shade50,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    width: MediaQuery
-                                        .of(context)
-                                        .size
-                                        .width / 2,
-                                    height: MediaQuery
-                                        .of(context)
-                                        .size
-                                        .width / 2,
-                                    color: Colors.teal.shade300,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Center(
+                          Center(
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Container(
                                       width: MediaQuery
                                           .of(context)
@@ -163,32 +152,48 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                                           .of(context)
                                           .size
                                           .width / 2,
-                                      child: Text(
-                                        "Relax and sit back. We are connecting your device.",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontFamily: "Aileron",
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 16.0),
-                                        maxLines: 2,
-                                        textAlign: TextAlign.center,
+                                      child: SvgPicture.asset(
+                                        "images/svg/relax_illustration.svg",
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Center(
+                                      child: Container(
+                                        width: MediaQuery
+                                            .of(context)
+                                            .size
+                                            .width / 2,
+                                        height: MediaQuery
+                                            .of(context)
+                                            .size
+                                            .width / 2,
+                                        child: Text(
+                                          "Relax and sit back. We are connecting your device.",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontFamily: "Aileron",
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 16.0),
+                                          maxLines: 2,
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
 
-                      ],
-                    )
+                        ],
+                      )
+                  ),
                 ),
               ),
             ],
-          ),
-        ],
-      );
+          );
   }else{
       return ListView(
         primary: true,
@@ -204,34 +209,33 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                     .of(context)
                     .size
                     .width,
-                height: 15.0,
                 child: LinearProgressIndicator(
                   valueColor: new AlwaysStoppedAnimation<Color>(
-                      Colors.blueGrey),
+                      Colors.black),
                   backgroundColor: Colors.white70,
                   value: 0.8,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: new Image.asset(
-                  'resources/assets/logo.png',
-                  width: 40.0,
-                  height: 40.0,
-                  fit: BoxFit.cover,
-                  alignment: Alignment.centerLeft,
+              //relax_illustration
+              Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: SvgPicture.asset(
+                    "images/svg/havells_logo (2).svg",
+                  ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                    left: 15.0, top: 20, right: 15.0, bottom: 10.0),
-                child: Text(
-                  "Your smart device is ready to use",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: "Aileron",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0),
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade200,
+                    borderRadius: BorderRadius.circular(15),),
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Text("Your smart device is almost ready to use",
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14.0),),
+                  ),
                 ),
               ),
               Padding(
@@ -240,12 +244,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                     elevation: 8.0,
                     child: Column(
                       children: <Widget>[
-                        Container(
-                          height: MediaQuery
-        .of(context)
-        .size
-        .width / 6,
-                        ),
+
                         Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Text(
@@ -267,10 +266,14 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(20.0),
-                                child: Icon(Icons.check_circle,color: Colors.grey,size: 80,),
-                              ),
+                               Container(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: SvgPicture.asset(
+                                      "images/svg/tick.svg",
+                                    ),
+                                  ),
+                                ),
                                 Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
@@ -293,7 +296,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                           child: Center(
                             child:  Container(
                                 child: RaisedButton(
-                                  color: Colors.black54,
+                                  color: Colors.black,
                                   elevation: 0.0,
                                   shape: new RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5),

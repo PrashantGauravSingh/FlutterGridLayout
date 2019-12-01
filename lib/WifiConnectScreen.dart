@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_gauge/AddDevice.dart';
 import 'package:flutter_gauge/ControlScreen.dart';
+import 'package:flutter_gauge/Search_device_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wifi/wifi.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
@@ -50,34 +52,39 @@ class _WifiConnectScreenState extends State<WifiConnectScreen> {
         children: <Widget>[
           SizedBox(
             width: MediaQuery.of(context).size.width,
-            height: 15.0,
             child:LinearProgressIndicator(
-              valueColor: new AlwaysStoppedAnimation<Color>(Colors.blueGrey),
+              valueColor: new AlwaysStoppedAnimation<Color>(Colors.black),
               backgroundColor: Colors.white70,
               value: 0.8,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: new Image.asset(
-              'images/logo.png',
-              width: 40.0,
-              height: 40.0,
-              fit: BoxFit.cover,
-              alignment: Alignment.centerLeft,
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: SvgPicture.asset(
+                "images/svg/havells_logo (2).svg",
+              ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left:15.0,top:10,right: 15.0,),
-            child: Text("Here are your Home WiFi Details",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16.0),),
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(15),),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0,),
+                child: Text("Here are your Home WiFi Details",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 16.0),),
+              ),
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left:15.0,top: 10.0,right: 15.0),
+            padding: const EdgeInsets.only(left:15.0,top: 5.0,right: 15.0),
             child: Card(
               elevation: 8.0,
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height/1.5,
+                height: MediaQuery.of(context).size.height/1.6,
                 child: Column(
                   children: <Widget>[
 
@@ -99,25 +106,29 @@ class _WifiConnectScreenState extends State<WifiConnectScreen> {
                         child: Text("Excellent",style: TextStyle(fontWeight: FontWeight.w600),),
                       ),
                     ),
-                    Divider(),
+                    Divider(height: 5.0,),
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: Text("My home WiFi details ",style: TextStyle(color: Colors.grey),),
                       ),
                     ),
-                     Row(
-                       children: <Widget>[
-                         Padding(
-                           padding: const EdgeInsets.all(15.0),
-                           child: Text("Network Name : ",style: TextStyle(fontWeight: FontWeight.w600),),
+
+                         Container(
+                           alignment: Alignment.centerLeft,
+                           child: Padding(
+                             padding: const EdgeInsets.only(left:15.0),
+                             child: Text("Network Name : ",style: TextStyle(fontWeight: FontWeight.w600),),
+                           ),
                          ),
-                         Padding(
-                           padding: const EdgeInsets.all(8.0),
-                           child: Text("Tp-Link-Home",style: TextStyle(fontWeight: FontWeight.w600),),
-                         ),
-                       ],
+                         Container(
+                           alignment: Alignment.centerLeft,
+                           child: Padding(
+                             padding: const EdgeInsets.only(left:15.0,top: 5.0),
+                             child: Text("Tp-Link-Home",style: TextStyle(fontWeight: FontWeight.w500),),
                      ),
+                         ),
+
                     Container(
                       alignment: Alignment.centerLeft,
                       child: Padding(
@@ -130,6 +141,22 @@ class _WifiConnectScreenState extends State<WifiConnectScreen> {
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
                           initialValue: "12345",
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: 'Password',
+                            hintStyle: TextStyle(fontSize: 16),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              borderSide: BorderSide(
+                                width: 0.5,
+                                color: Colors.grey,
+                                style: BorderStyle.solid,
+                              ),
+                            ),
+                            filled: true,
+                            contentPadding: EdgeInsets.all(16),
+                            fillColor: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -138,7 +165,7 @@ class _WifiConnectScreenState extends State<WifiConnectScreen> {
                       child: Container(
                         width: double.infinity,
                         child: RaisedButton(
-                          color: Colors.white,
+                          color: Colors.black,
                         elevation: 0.0,
                         shape: new RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),side: BorderSide(color: Colors.grey)
@@ -147,14 +174,14 @@ class _WifiConnectScreenState extends State<WifiConnectScreen> {
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ControlScreen()),
+                              MaterialPageRoute(builder: (context) => SearchDeviceScreen()),
                             );
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(15.0),
                             child: Text(
                               "SAVE & CONTINUE ",
-                              style: TextStyle(color: Colors.black,fontSize: 17.0),
+                              style: TextStyle(color: Colors.white,fontSize: 14.0),
                             ),
                           ),
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gauge/AddDevice.dart';
+import 'package:flutter_gauge/WifiConnectScreen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter/services.dart';
@@ -93,7 +94,12 @@ class _ControlScreenState extends State<ControlScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button("Popular", Icons.favorite, Colors.blue),
+            GestureDetector(child: _button("Popular", Icons.favorite, Colors.blue),onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WifiConnectScreen()),
+              );
+            },),
             _button("Food", Icons.restaurant, Colors.red),
             _button("Events", Icons.event, Colors.amber),
             _button("More", Icons.more_horiz, Colors.green),
