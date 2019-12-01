@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gauge/Search_device_screen.dart';
+import 'package:flutter_gauge/SetDeviceAliasName.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -12,6 +13,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
 
   bool isConnected=false;
   bool isSuccess=false;
+  final aliasController=new TextEditingController();
 
   @override
   void initState() {
@@ -195,6 +197,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
             ],
           );
   }else{
+
       return ListView(
         primary: true,
         physics: const BouncingScrollPhysics(),
@@ -244,9 +247,16 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                     elevation: 8.0,
                     child: Column(
                       children: <Widget>[
-
+                        Container(
+                          child: Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: SvgPicture.asset(
+                              "images/svg/havells_logo (2).svg",
+                            ),
+                          ),
+                        ),
                         Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Text(
                             "Device connected successfully!",
                             style: TextStyle(
@@ -266,9 +276,9 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                               Container(
+                                Container(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding: const EdgeInsets.all(5.0),
                                     child: SvgPicture.asset(
                                       "images/svg/tick.svg",
                                     ),
@@ -277,7 +287,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                                 Padding(
                                   padding: const EdgeInsets.all(20.0),
                                   child: Text(
-                                    "Welcome to a brand new smart home experience.",
+                                    "Give a name to your Device! This is for faster recall. ",
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontFamily: "Aileron",
@@ -291,10 +301,35 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Center(
-                            child:  Container(
+                        Container(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                              obscureText: true,
+                              controller: aliasController,
+                              decoration: InputDecoration(
+                                hintText: 'Enter a name for your Device',
+                                hintStyle: TextStyle(fontSize: 12),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide(
+                                    width: 0.5,
+                                    color: Colors.grey,
+                                    style: BorderStyle.solid,
+                                  ),
+                                ),
+                                filled: true,
+                                contentPadding: EdgeInsets.all(16),
+                                fillColor: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                       Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Center(
+                              child:  Container(
+                                width: MediaQuery.of(context).size.width,
                                 child: RaisedButton(
                                   color: Colors.black,
                                   elevation: 0.0,
@@ -307,24 +342,24 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => SearchDeviceScreen()),
+                                          builder: (context) => SetDeviceAliasName(aliasController.text)),
                                     );
                                   },
                                   child: Padding(
                                     padding: const EdgeInsets.all(15.0),
                                     child: Text(
-                                      "START USING MY DEVICE",
+                                      "SAVE",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontFamily: "Aileron",
                                           fontWeight: FontWeight.w600,
                                           fontSize: 16.0),
                                     ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
 
                       ],
                     )
