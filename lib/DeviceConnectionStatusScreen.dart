@@ -33,8 +33,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      resizeToAvoidBottomPadding: true,
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0.0,
@@ -87,7 +86,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                   valueColor: new AlwaysStoppedAnimation<Color>(
                       Colors.black),
                   backgroundColor: Colors.white70,
-                  value: 0.8,
+                  value: 0.9,
                 ),
               ),
 
@@ -222,7 +221,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
               //relax_illustration
               Container(
                 child: Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: SvgPicture.asset(
                     "images/svg/havells_logo (2).svg",
                   ),

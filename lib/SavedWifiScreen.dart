@@ -83,7 +83,7 @@ class _SavedWifiScreenState extends State<SavedWifiScreen> {
                 child: LinearProgressIndicator(
                   valueColor: new AlwaysStoppedAnimation<Color>(Colors.black),
                   backgroundColor: Colors.white70,
-                  value: 0.7,
+                  value: 0.5,
                 ),
               ),
               Container(

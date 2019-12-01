@@ -60,7 +60,7 @@ class _SetDeviceAliasNameState extends State<SetDeviceAliasName> {
                   valueColor: new AlwaysStoppedAnimation<Color>(
                       Colors.black),
                   backgroundColor: Colors.white70,
-                  value: 0.8,
+                  value: 1.0,
                 ),
               ),
               //relax_illustration
@@ -101,7 +101,7 @@ class _SetDeviceAliasNameState extends State<SetDeviceAliasName> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: Text(
                             widget.aliasName==null?"Device":widget.aliasName,
                             style: TextStyle(

@@ -82,7 +82,7 @@ class SearchDeviceScreenState extends State<SearchDeviceScreen>
               child: LinearProgressIndicator(
                 valueColor: new AlwaysStoppedAnimation<Color>(Colors.black),
                 backgroundColor: Colors.white70,
-                value: 0.3,
+                value: 0.7,
               ),
             ),
             _buildBody()

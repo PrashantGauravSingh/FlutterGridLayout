@@ -82,7 +82,7 @@ class _WifiListScreenState extends State<WifiListScreen> {
             child: LinearProgressIndicator(
               valueColor: new AlwaysStoppedAnimation<Color>(Colors.black),
               backgroundColor: Colors.white70,
-              value: 0.7,
+              value: 0.4,
             ),
           ),
           Container(
@@ -140,7 +140,7 @@ class _WifiListScreenState extends State<WifiListScreen> {
             child: LinearProgressIndicator(
               valueColor: new AlwaysStoppedAnimation<Color>(Colors.black),
               backgroundColor: Colors.white70,
-              value: 0.7,
+              value: 0.3,
             ),
           ),
           Container(
