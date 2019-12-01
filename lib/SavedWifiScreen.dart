@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gauge/AddDevice.dart';
 import 'package:flutter_gauge/Search_device_screen.dart';
 import 'package:flutter_gauge/WifiConnectScreen.dart';
+import 'package:flutter_gauge/WifiListScreen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wifi/wifi.dart';
 
@@ -113,12 +114,20 @@ class _SavedWifiScreenState extends State<SavedWifiScreen> {
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Text("Choose Another WiFI Network",style: TextStyle(
-                    color: const Color(0XFF181818),decorationStyle: TextDecorationStyle.solid,decoration: TextDecoration.underline),
-
+              GestureDetector(
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text("Choose Another WiFI Network",style: TextStyle(
+                      color: const Color(0XFF181818),decorationStyle: TextDecorationStyle.solid,decoration: TextDecoration.underline),
+                  ),
                 ),
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => WifiListScreen()),
+                  );
+                },
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
