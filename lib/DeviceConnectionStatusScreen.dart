@@ -86,7 +86,7 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                   valueColor: new AlwaysStoppedAnimation<Color>(
                       Colors.black),
                   backgroundColor: Colors.white70,
-                  value: 0.9,
+                  value: 0.8,
                 ),
               ),
 
@@ -215,13 +215,13 @@ class _DeviceConnectionStatusScreenState extends State<DeviceConnectionStatusScr
                   valueColor: new AlwaysStoppedAnimation<Color>(
                       Colors.black),
                   backgroundColor: Colors.white70,
-                  value: 0.8,
+                  value: 0.9,
                 ),
               ),
               //relax_illustration
               Container(
                 child: Padding(
-                  padding: const EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.only(left:15.0,top:15,bottom: 15.0),
                   child: SvgPicture.asset(
                     "images/svg/havells_logo (2).svg",
                   ),
