@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gauge/ControlScreen.dart';
 import 'package:flutter_gauge/DeviceConnectionStatusScreen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -32,18 +33,18 @@ class SearchDeviceScreenState extends State<SearchDeviceScreen>
       });
 
     });
-    Future.delayed(const Duration(milliseconds: 8000), () {
-// Here you can write your code
-
-      setState(() {
-        // Here you can write your code for open new view
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => DeviceConnectionStatusScreen()),
-        );
-      });
-    });
+//    Future.delayed(const Duration(milliseconds: 8000), () {
+//// Here you can write your code
+//
+//      setState(() {
+//        // Here you can write your code for open new view
+//        Navigator.push(
+//          context,
+//          MaterialPageRoute(
+//              builder: (context) => DeviceConnectionStatusScreen()),
+//        );
+//      });
+//    });
   }
 
   @override
@@ -66,7 +67,14 @@ class SearchDeviceScreenState extends State<SearchDeviceScreen>
                   Icons.sync,
                   color: Colors.black,
                 ),
-                onPressed: () {}),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ControlScreen(
+                        )),
+                  );
+                }),
             IconButton(
                 icon: Icon(
                   Icons.help_outline,
