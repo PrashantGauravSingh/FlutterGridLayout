@@ -20,6 +20,7 @@ class _ControlScreenState extends State<ControlScreen> {
   double _fabHeight;
   double _panelHeightOpen = 550.0;
   double _panelHeightClosed = 450.0;
+  bool isClicked=false;
 
   @override
   void initState(){
@@ -98,6 +99,10 @@ class _ControlScreenState extends State<ControlScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 GestureDetector(child: _button("Popular", Icons.favorite, Colors.blue),onTap: (){
+                  setState(() {
+                    isClicked=!isClicked;
+
+                  });
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => WifiConnectScreen()),
@@ -181,7 +186,7 @@ class _ControlScreenState extends State<ControlScreen> {
             ),
           ],
         ),
-    new Center(
+    isClicked ?new Center(
     child: new ClipRect(
     child: new BackdropFilter(
     filter: new ImageFilter.blur(sigmaX: 0.5, sigmaY: 0.5),
@@ -198,7 +203,7 @@ class _ControlScreenState extends State<ControlScreen> {
     ),
     ),
     ),
-    ),
+    ):Container(),
 
       ],
     );

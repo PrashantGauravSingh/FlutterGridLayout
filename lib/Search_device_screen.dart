@@ -11,6 +11,7 @@ class SearchDeviceScreen extends StatefulWidget {
 class SearchDeviceScreenState extends State<SearchDeviceScreen>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
+  bool isCheck=false;
 
   @override
   void initState() {
@@ -27,6 +28,7 @@ class SearchDeviceScreenState extends State<SearchDeviceScreen>
 
       setState(() {
         //_showDialog("images/svg/sad_face_icon.svg","Uh-Oh!","The system could not find a nearby smart device");
+        isCheck=true;
         _showDialog("images/svg/call_icon.svg","","Looks like the connection could not be established. It will be better to contact our customer support now!");
 
         // Here you can write your code for open new view
@@ -83,7 +85,7 @@ class SearchDeviceScreenState extends State<SearchDeviceScreen>
                 onPressed: () {})
           ],
         ),
-        body: Stack(
+        body: Column(
           children: <Widget>[
             SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -93,9 +95,105 @@ class SearchDeviceScreenState extends State<SearchDeviceScreen>
                 value: 0.6,
               ),
             ),
-            _buildBody()
+            isCheck?Expanded(child: resultList(context)): Expanded(child:_buildBody())
           ],
         ));
+  }
+
+  ListView resultList(BuildContext context) {
+    return  ListView.builder(
+      reverse: false,
+      itemCount: 1,
+      shrinkWrap: true,
+      itemBuilder: (BuildContext context, int index) {
+        return GestureDetector(
+          onTap: () {
+
+          },
+          child:  Container(
+                  decoration: new BoxDecoration(
+                    color: Color(0xffffffff),
+                    borderRadius: BorderRadius.circular(10),
+                    boxShadow: [BoxShadow(
+                        color: Color(0x1a181818),
+                        offset: Offset(0,1),
+                        blurRadius: 25,
+                        spreadRadius: 0
+                    ) ],
+                  ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top:20.0,left: 20.0,right: 20.0),
+                  child: Column(
+                    children: <Widget>[
+                     Row(
+                       children: <Widget>[
+                         Container(
+                           child: SvgPicture.asset(
+                               "images/svg/havells_logo (2).svg",
+                             ),
+                         ),
+                         Padding(
+                           padding: const EdgeInsets.only(left:15.0),
+                           child: Text(
+                             "Monza Gyser",
+                             style: TextStyle(
+                                 color: Colors.red,
+                                 fontFamily: "Aileron",
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 18.0),
+                           ),
+                         ),
+                       ],
+                     ),
+                         Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              Container(
+                                alignment: Alignment.centerRight,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: SvgPicture.asset(
+                                    "images/svg/gyser_havells_red.svg",
+                                  ),
+                                ),
+                                width: 50,
+                                height: 50,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: <Widget>[
+                                    Icon(Icons.brightness_1,color: Colors.green,size: 15,),
+                                    new Text("Installed",
+                                        style: TextStyle(
+                                          fontFamily: 'Aileron',
+                                          color: Color(0xff181818),
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w400,
+                                          fontStyle: FontStyle.normal,
+                                          letterSpacing: 0.2,
+
+                                        )
+                                    )
+
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+
+
+                    ],
+                  )
+                ),
+              ),
+          );
+      },
+    );
+
   }
 
   Widget _buildBody() {
@@ -108,6 +206,8 @@ class SearchDeviceScreenState extends State<SearchDeviceScreen>
             _buildContainer(150 * _controller.value),
             _buildContainer(300 * _controller.value),
             _buildContainer(450 * _controller.value),
+            _buildContainer(600 * _controller.value),
+
             Align(
                 child: Icon(
               Icons.wifi_tethering,
@@ -117,7 +217,7 @@ class SearchDeviceScreenState extends State<SearchDeviceScreen>
             Padding(
               padding: const EdgeInsets.only(
                 left: 15.0,
-                top: 100,
+                top:400.0,
                 right: 15.0,
               ),
               child: Text(
